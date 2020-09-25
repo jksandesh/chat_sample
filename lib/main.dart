@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:connectycube_sdk/connectycube_sdk.dart';
 import 'dart:async';
-import 'src//utils/configs.dart' as config;
+import 'package:chat_sample/src/Auth/Screens/Welcome/welcome_screen.dart';
 import 'src/login_screen.dart';
+import 'src/Call/configs.dart' as config;
 import 'package:lottie/lottie.dart';
 
 void main() => runApp(MyApp());
@@ -41,7 +42,7 @@ class _AppState extends State<App> {
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
-                    LoginScreen()
+                    WelcomeScreen(),
             )
         )
     );

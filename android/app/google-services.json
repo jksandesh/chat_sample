@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "632471733816",
+    "firebase_url": "https://booz-5c1aa.firebaseio.com",
+    "project_id": "booz-5c1aa",
+    "storage_bucket": "booz-5c1aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632471733816:android:c8cb4e52d2c0e780e6c8cd",
+        "android_client_info": {
+          "package_name": "com.connectycube.flutter.chat_sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632471733816-epjo6cmhgpagrgjc3dkajt3cdnc3mmho.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.connectycube.flutter.chat_sample",
+            "certificate_hash": "125c776283fab6c71068f86e95813f6406b3efd3"
+          }
+        },
+        {
+          "client_id": "632471733816-hk9hti382kvk48ouffesofr5poopguj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjOc93LlKqX3dcWXDzlYFSWf8ARKNgoEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632471733816-hk9hti382kvk48ouffesofr5poopguj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
