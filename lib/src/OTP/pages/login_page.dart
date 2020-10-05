@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                                 child: Stack(
                                   children: <Widget>[
-                                    Center(
+                                    /*Center(
                                       child: Container(
                                         height: 240,
                                         constraints: const BoxConstraints(
@@ -54,19 +54,20 @@ class _LoginPageState extends State<LoginPage> {
                                         margin: const EdgeInsets.only(top: 100),
                                         decoration: const BoxDecoration(color: Color(0xFFE1E0F5), borderRadius: BorderRadius.all(Radius.circular(30))),
                                       ),
-                                    ),
+                                    ),*/
                                     Center(
                                       child: Container(
-                                          constraints: const BoxConstraints(maxHeight: 340),
+
+                                          constraints: const BoxConstraints(maxHeight: 500),
                                           margin: const EdgeInsets.symmetric(horizontal: 8),
-                                          child: Image.asset('assets/login.png')),
+                                          child: Image.asset('assets/images/d.png'),height: 400,width:400),
                                     ),
                                   ],
                                 ),
                               ),
                               Container(
                                   margin: const EdgeInsets.symmetric(horizontal: 10),
-                                  child: Text('TheGorgeousOtp',
+                                  child: Text('Friendly',
                                       style: TextStyle(color: MyColors.primaryColor, fontSize: 30, fontWeight: FontWeight.w800)))
                             ],
                           ),
@@ -98,23 +99,15 @@ class _LoginPageState extends State<LoginPage> {
                                 child: CupertinoTextField(
                                   padding: const EdgeInsets.symmetric(horizontal: 16),
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: Colors.black12,
                                     borderRadius: const BorderRadius.all(Radius.circular(4))
                                   ),
                                   controller: phoneController,
                                   clearButtonMode: OverlayVisibilityMode.editing,
                                   keyboardType: TextInputType.phone,
                                   maxLines: 1,
-                                  placeholder: '+91...',
+                                  placeholder: '10 digit Mobile No.',
                                 ),
-                              ),
-                              Container(
-                                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                constraints: const BoxConstraints(
-                                    maxWidth: 500
-                                ),
-                                child: PhoneFieldHint(),
-
                               ),
                               Container(
                                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -124,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: RaisedButton(
                                   onPressed: () {
                                     if (phoneController.text.isNotEmpty) {
-                                      loginStore.getCodeWithPhoneNumber(context, phoneController.text.toString());
+                                      loginStore.getCodeWithPhoneNumber(context, "+91"+phoneController.text.toString());
                                     } else {
                                       loginStore.loginScaffoldKey.currentState.showSnackBar(SnackBar(
                                         behavior: SnackBarBehavior.floating,
