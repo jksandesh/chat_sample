@@ -35,8 +35,8 @@ enum FormType { login, register }
 
 class LoginPageAState extends State<LoginPageA> {
   static const String TAG = "_LoginPageState";
-  final TextEditingController _loginFilter = new TextEditingController();
-  final TextEditingController _passwordFilter = new TextEditingController();
+  final TextEditingController _name = new TextEditingController();
+  final TextEditingController _age = new TextEditingController();
   String _login = "";
   String _password = "";
   FormType _form = FormType
@@ -52,23 +52,23 @@ class LoginPageAState extends State<LoginPageA> {
   bool _medium;
 
   LoginPageAState() {
-    _loginFilter.addListener(_loginListen);
-    _passwordFilter.addListener(_passwordListen);
+    _name.addListener(_loginListen);
+    _age.addListener(_passwordListen);
   }
 
   void _loginListen() {
-    if (_loginFilter.text.isEmpty) {
+    if (_name.text.isEmpty) {
       _login = "";
     } else {
-      _login = _loginFilter.text;
+      _login = _name.text;
     }
   }
 
   void _passwordListen() {
-    if (_passwordFilter.text.isEmpty) {
+    if (_age.text.isEmpty) {
       _password = "";
     } else {
-      _password = _passwordFilter.text;
+      _password = _age.text;
     }
   }
 
@@ -97,7 +97,7 @@ class LoginPageAState extends State<LoginPageA> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: new Container(
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(10.0),
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
@@ -109,79 +109,6 @@ class LoginPageAState extends State<LoginPageA> {
     );
   }
 
-  Widget clipShape() {
-    return Stack(
-      children: <Widget>[
-        Opacity(
-          opacity: 0.75,
-          child: ClipPath(
-            clipper: CustomShapeClipper(),
-            child: Container(
-              height: _large? _height/8 : (_medium? _height/7 : _height/6.5),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
-                ),
-              ),
-            ),
-          ),
-        ),
-        Opacity(
-          opacity: 0.5,
-          child: ClipPath(
-            clipper: CustomShapeClipper2(),
-            child: Container(
-              height: _large? _height/12 : (_medium? _height/11 : _height/10),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
-                ),
-              ),
-            ),
-          ),
-        ),
-        Container(
-          height: _height / 5.5,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  spreadRadius: 0.0,
-                  color: Colors.black26,
-                  offset: Offset(1.0, 10.0),
-                  blurRadius: 20.0),
-            ],
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-          child: GestureDetector(
-              onTap: (){
-                print('Adding photo');
-              },
-
-              child: Icon(Icons.add_a_photo, size: _large? 40: (_medium? 33: 31),color: Colors.orange[200],)),
-        ),
-//        Positioned(
-//          top: _height/8,
-//          left: _width/1.75,
-//          child: Container(
-//            alignment: Alignment.center,
-//            height: _height/23,
-//            padding: EdgeInsets.all(5),
-//            decoration: BoxDecoration(
-//              shape: BoxShape.circle,
-//              color:  Colors.orange[100],
-//            ),
-//            child: GestureDetector(
-//                onTap: (){
-//                  print('Adding photo');
-//                },
-//                child: Icon(Icons.add_a_photo, size: _large? 22: (_medium? 15: 13),)),
-//          ),
-//        ),
-      ],
-    );
-  }
 
   Widget _buildLogoField() {
 //    return Image.asset('assets/images/splash.png');
@@ -195,8 +122,8 @@ class LoginPageAState extends State<LoginPageA> {
               child: Image.asset('assets/images/c.jpg'),
             ),
             Container(
-              height: 18,
-              width: 18,
+              height: 5,
+              width: 5,
               child: Visibility(
                 visible: _isLoginContinues,
                 child: CircularProgressIndicator(
@@ -242,7 +169,7 @@ class LoginPageAState extends State<LoginPageA> {
       margin: EdgeInsets.only(
           left:_width/ 12.0,
           right: _width / 12.0,
-          top: _height / 20.0),
+          ),
       child: new Column(
         children: <Widget>[
           new Container(
@@ -266,20 +193,25 @@ class LoginPageAState extends State<LoginPageA> {
 
             ),
           ),
+          SizedBox(height: _height/35,),
           new Container(
             child: CustomTextField(
+              textEditingController: _name,
               keyboardType: TextInputType.text,
               icon: Icons.person,
               hint: "Name",
             )
           ),
+          SizedBox(height: _height/35,),
           new Container(
             child: CustomTextField(
+              textEditingController: _age,
               keyboardType: TextInputType.number,
               icon: Icons.phone,
               hint: "Age",
             )
           ),
+          SizedBox(height: _height/35,),
           new Container(
             margin: EdgeInsets.only(top: _height / 100.0),
             child: Row(
@@ -304,9 +236,7 @@ class LoginPageAState extends State<LoginPageA> {
             child: RaisedButton(
               elevation: 0,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-              onPressed: () {
-                print("Routing to your account");
-              },
+              onPressed: _loginPressed,
               textColor: Colors.white,
               padding: EdgeInsets.all(0.0),
               child: Container(
@@ -464,8 +394,8 @@ class LoginPageAState extends State<LoginPageA> {
     _isLoginContinues = false;
     _login = "";
     _password = "";
-    _loginFilter.clear();
-    _passwordFilter.clear();
+    _name.clear();
+    _age.clear();
   }
 
   void _goDialogScreen(BuildContext context, CubeUser cubeUser) async {

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "632471733816-tn6mbhmce50k8kqsb11b8n22qfkdsk4s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.connectycube.flutter.chat_sample",
+            "certificate_hash": "8082aafc5b9abfbae173860de06cab3381bf37ed"
+          }
+        },
+        {
           "client_id": "632471733816-epjo6cmhgpagrgjc3dkajt3cdnc3mmho.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
