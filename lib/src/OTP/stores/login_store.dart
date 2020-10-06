@@ -1,3 +1,4 @@
+import 'package:chat_sample/src/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -115,7 +116,7 @@ abstract class LoginStoreBase with Store {
 
     firebaseUser = result.user;
 
-    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const HomePage()), (Route<dynamic> route) => false);
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) =>  Login()), (Route<dynamic> route) => false);
 
     isLoginLoading = false;
     isOtpLoading = false;

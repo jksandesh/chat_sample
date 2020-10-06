@@ -1,3 +1,4 @@
+import 'package:chat_sample/src/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -24,16 +25,16 @@ class _SplashPageState extends State<SplashPage> {
 
     Provider.of<LoginStore>(context, listen: false).isAlreadyAuthenticated().then((result) {
       if (result) {
-        Timer(Duration(seconds: 5),
+        Timer(Duration(seconds: 4),
                 ()=>Navigator.pushReplacement(context,
                 MaterialPageRoute(builder:
                     (context) =>
-                        HomePage(),
+                        Login(),
                 )
             )
         );
        } else {
-        Timer(Duration(seconds: 5),
+        Timer(Duration(seconds: 4),
                 ()=>Navigator.pushReplacement(context,
                 MaterialPageRoute(builder:
                     (context) =>
